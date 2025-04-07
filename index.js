@@ -4,8 +4,6 @@ const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
 
-const { exec } = require("child_process");
-const say = require("say");
 const axios = require("axios");
 const FormData = require("form-data");
 
@@ -29,11 +27,9 @@ pp.post("/voice-changer", upload.single("audio"), (req, res) => {
 
   const selectedPitch = pitchMap[voiceType];
   if (!selectedPitch) {
-    return res
-      .status(400)
-      .json({
-        error: "Invalid voiceType. Choose from: robotic, monster, angel",
-      });
+    return res.status(400).json({
+      error: "Invalid voiceType. Choose from: robotic, monster, angel",
+    });
   }
 
   const inputPath = req.file.path;
