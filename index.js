@@ -9,7 +9,7 @@ const upload = multer({ dest: "uploads/" });
 
 app.use(express.json());
 
-pp.post("/voice-changer", upload.single("audio"), (req, res) => {
+app.post("/voice-changer", upload.single("audio"), (req, res) => {
   if (!req.file)
     return res.status(400).json({ error: "No audio file uploaded" });
 
