@@ -4,9 +4,6 @@ const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
 
-const axios = require("axios");
-const FormData = require("form-data");
-
 const app = express();
 const upload = multer({ dest: "uploads/" });
 
